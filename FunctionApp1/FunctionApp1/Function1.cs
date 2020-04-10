@@ -6,6 +6,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 
 namespace FunctionApp1
@@ -18,6 +19,8 @@ namespace FunctionApp1
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
+
+            _ = new TokenValidationParameters();
 
             string name = req.Query["name"];
 
